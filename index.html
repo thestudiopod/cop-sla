@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en" class="v3-theme">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
+<title>Studio Pod × ConocoPhillips · Software, Service &amp; Support SLA</title>
+<meta name="description" content="Confidential draft. The operating SLA for the Houston HQ pod and the planned Midland, Bartlesville, Calgary, and Anchorage sites. SLA-COP-2026-08-DRAFT.">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" type="image/png" href="https://www.thestudiopod.com/favicon/favicon-32x32.png">
+
+<link rel="preload" as="font" type="font/woff2" href="https://www.thestudiopod.com/fonts/matter/Matter-SemiBold.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="https://www.thestudiopod.com/fonts/matter/Matter-Regular.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="https://cdn.jsdelivr.net/fontsource/fonts/geist@latest/latin-400-normal.woff2" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap">
+
+<style>
+@font-face {
+  font-family: Matter;
+  src: url("https://www.thestudiopod.com/fonts/matter/Matter-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Matter;
+  src: url("https://www.thestudiopod.com/fonts/matter/Matter-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Geist;
+  src: url("https://cdn.jsdelivr.net/fontsource/fonts/geist@latest/latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Geist;
+  src: url("https://cdn.jsdelivr.net/fontsource/fonts/geist@latest/latin-500-normal.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Geist;
+  src: url("https://cdn.jsdelivr.net/fontsource/fonts/geist@latest/latin-600-normal.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --ink: #0A0A0A;
+  --ink-soft: #141414;
+  --ink-border: rgba(242, 238, 230, 0.12);
+  --cream: #F2EEE6;
+  --cream-soft: #E9E3D6;
+  --cream-border: rgba(10, 10, 10, 0.08);
+  --accent: #F4A93B;
+  --accent-ink: #0A0A0A;
+  --accent-soft: rgba(244, 169, 59, 0.14);
+  --accent-plate: #F6E7C8;
+  --warm-400: #9C978B;
+  --warm-600: #6A645A;
+  --warm-700: #4F4A41;
+  --warm-800: #33302A;
+  --ok: #2B7A4B;
+  --ok-soft: #E4EFE8;
+  --signal: #B7E48B;
+  --f-display: "Matter", ui-sans-serif, system-ui, "Inter", sans-serif;
+  --f-body: "Geist", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --wrap: 1080px;
+  --pad: clamp(20px, 4vw, 48px);
+  --header-h: 72px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+html, body {
+  min-height: 100%;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.58;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+body { padding-top: 0; }
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+ul { list-style: none; }
+table { border-collapse: collapse; width: 100%; }
+
+.skip {
+  position: absolute;
+  left: 16px;
+  top: -40px;
+  z-index: 100;
+  background: var(--accent);
+  color: var(--ink);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.skip:focus { top: 16px; }
+
+/* ---------- Wordmark ---------- */
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--cream);
+}
+.wordmark svg { width: 22px; height: 22px; flex: 0 0 22px; }
+.wordmark-text {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: inherit;
+}
+.wordmark-ink { color: var(--ink); }
+
+/* ---------- Buttons ---------- */
+.v3-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.16s ease;
+}
+.v3-btn:active { transform: translateY(1px); }
+.v3-btn-primary-light {
+  background: var(--cream);
+  color: var(--ink);
+  border-color: var(--cream);
+}
+.v3-btn-primary-light:hover {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+.v3-btn-ghost-light {
+  background: transparent;
+  color: var(--cream);
+  border-color: rgba(242, 238, 230, 0.28);
+}
+.v3-btn-ghost-light:hover { border-color: var(--cream); }
+.v3-btn-primary-dark {
+  background: var(--ink);
+  color: var(--cream);
+  border-color: var(--ink);
+}
+.v3-btn-primary-dark:hover { background: #222; border-color: #222; }
+.v3-btn-ghost-dark {
+  background: transparent;
+  color: var(--ink);
+  border-color: rgba(10, 10, 10, 0.18);
+}
+.v3-btn-ghost-dark:hover { border-color: var(--ink); }
+.v3-btn-sm { padding: 10px 16px; font-size: 11px; }
+
+/* ---------- Sticky bar ---------- */
+.site-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  color: var(--cream);
+  background: transparent;
+  transition: background 0.2s ease, backdrop-filter 0.2s ease, border-color 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+.site-bar.is-scrolled {
+  background: rgba(10, 10, 10, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom-color: rgba(242, 238, 230, 0.08);
+}
+.site-bar-inner {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding: 16px var(--pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.site-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.draft-pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--ink);
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 7px 12px;
+  white-space: nowrap;
+}
+
+/* ---------- Layout ---------- */
+.wrap {
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+.section-pad { padding-block: clamp(72px, 9vw, 120px); }
+.v3-label {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--warm-600);
+}
+.sec-kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.sec-num {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+h1, h2, h3 {
+  font-family: var(--f-display);
+  font-weight: 600;
+  text-wrap: balance;
+}
+h2 {
+  font-size: clamp(32px, 4.2vw, 48px);
+  letter-spacing: -0.022em;
+  line-height: 1.05;
+  color: var(--ink);
+}
+h3 {
+  font-size: clamp(20px, 2vw, 24px);
+  letter-spacing: -0.018em;
+  line-height: 1.15;
+  color: var(--ink);
+}
+p { color: var(--warm-800); text-wrap: pretty; }
+.lede {
+  font-size: clamp(17px, 1.5vw, 20px);
+  line-height: 1.55;
+  color: var(--warm-800);
+  max-width: 46em;
+}
+.muted { color: var(--warm-600); }
+.yes { color: var(--ok); font-weight: 600; }
+.no { color: var(--warm-600); }
+
+/* ---------- Hero ---------- */
+.du-hero {
+  position: relative;
+  background: var(--ink);
+  color: var(--cream);
+  margin-top: -88px;
+  padding-top: clamp(128px, 14vw, 176px);
+  padding-bottom: clamp(56px, 6vw, 88px);
+  overflow: hidden;
+}
+.du-hero-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 28%, rgba(244, 169, 59, 0.07) 0%, transparent 70%),
+    linear-gradient(180deg, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.0) 40%, rgba(10,10,10,0.55) 100%);
+}
+.du-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+  display: grid;
+  gap: clamp(18px, 2vw, 28px);
+}
+.du-hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  align-self: start;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(242, 238, 230, 0.22);
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(242, 238, 230, 0.85);
+}
+.du-hero-pill::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signal);
+  box-shadow: 0 0 8px rgba(183, 228, 139, 0.6);
+}
+.du-hero h1 {
+  font-size: clamp(48px, 8vw, 84px);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  color: var(--cream);
+  max-width: 14ch;
+  margin: 0;
+}
+.du-hero h1 em {
+  color: var(--accent);
+  font-style: normal;
+}
+.du-hero-sub {
+  font-size: clamp(17px, 1.6vw, 21px);
+  line-height: 1.5;
+  color: rgba(242, 238, 230, 0.78);
+  max-width: 46ch;
+  margin: 0;
+}
+.du-hero-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.hero-doc {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.hero-meta {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.1fr;
+  gap: 24px;
+  padding-top: 28px;
+  margin-top: 8px;
+  border-top: 1px solid rgba(242, 238, 230, 0.12);
+}
+.hero-meta .lbl {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--warm-400);
+  margin-bottom: 8px;
+}
+.hero-meta .val {
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--cream);
+  font-weight: 500;
+}
+
+/* ---------- Stats ---------- */
+.du-stats {
+  background: var(--ink);
+  color: var(--cream);
+  padding-block: clamp(40px, 6vw, 80px) clamp(64px, 8vw, 104px);
+  border-top: 1px solid rgba(242, 238, 230, 0.08);
+}
+.du-stats-grid {
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  align-items: end;
+}
+.du-stat { display: grid; gap: 10px; }
+.du-stat b {
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: clamp(56px, 8vw, 96px);
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  color: var(--cream);
+}
+.du-stat b span { color: var(--accent); }
+.du-stat em {
+  font-family: var(--f-display);
+  font-style: normal;
+  font-weight: 600;
+  font-size: clamp(22px, 2.4vw, 32px);
+  letter-spacing: -0.02em;
+  color: var(--accent);
+}
+.du-stat span.cap {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(242, 238, 230, 0.55);
+}
+
+/* ---------- Purpose ---------- */
+.du-purpose { background: var(--cream); }
+.quote {
+  margin-top: 36px;
+  background: var(--cream-soft);
+  border-left: 3px solid var(--accent);
+  padding: 28px 28px 28px 32px;
+}
+.quote .q-label {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--warm-700);
+  margin-bottom: 16px;
+}
+.quote p { margin-bottom: 14px; }
+.quote p:last-child { margin-bottom: 0; }
+.quote strong { font-weight: 600; color: var(--ink); }
+.tier-note { margin-top: 28px; max-width: 52em; }
+
+/* ---------- Compare ---------- */
+.du-compare { background: var(--cream); padding-top: 0; }
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+table.cmp {
+  min-width: 720px;
+  font-size: 15px;
+  line-height: 1.45;
+}
+table.cmp th, table.cmp td {
+  text-align: left;
+  vertical-align: top;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--cream-soft);
+}
+table.cmp thead th {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0 16px 12px;
+  border-bottom: 2px solid var(--ink);
+  color: var(--ink);
+}
+table.cmp thead th.ent {
+  color: var(--ink);
+  background: var(--accent-soft);
+  border-bottom: 2px solid var(--accent);
+}
+table.cmp td.ent { background: var(--accent-soft); }
+table.cmp td.feat {
+  width: 26%;
+  font-weight: 600;
+  color: var(--ink);
+  padding-left: 0;
+}
+table.cmp thead th:first-child { padding-left: 0; }
+table.cmp tbody tr:last-child td { border-bottom: 1px solid var(--ink); }
+
+table.mini {
+  font-size: 15px;
+  min-width: 640px;
+}
+table.mini th, table.mini td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--cream-soft);
+  vertical-align: top;
+}
+table.mini thead th {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--warm-600);
+  border-bottom: 1px solid var(--ink);
+  padding-left: 0;
+}
+table.mini td:first-child, table.mini th:first-child { padding-left: 0; }
+table.mini tbody tr:last-child td { border-bottom: none; }
+
+.note {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--warm-600);
+  border-top: 1px solid var(--cream-soft);
+  padding-top: 14px;
+  margin-top: 16px;
+}
+
+/* ---------- Time zones ---------- */
+.du-zones { background: var(--cream-soft); }
+.zone-map { display: grid; gap: 14px; margin-top: 28px; }
+.zone-row {
+  display: grid;
+  grid-template-columns: minmax(140px, 180px) 1fr minmax(180px, 240px);
+  gap: 16px;
+  align-items: center;
+  background: var(--cream);
+  padding: 16px 18px;
+  border: 1px solid var(--cream-border);
+}
+.zone-name { font-weight: 600; color: var(--ink); }
+.zone-name small {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--warm-600);
+}
+.zone-track {
+  position: relative;
+  height: 18px;
+  background: rgba(10, 10, 10, 0.06);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.zone-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: var(--accent);
+  border-radius: 999px;
+  opacity: 0.9;
+}
+.zone-fill.late { background: var(--ink); }
+.zone-local {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--warm-700);
+  text-align: right;
+}
+.zone-legend {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--warm-600);
+}
+.zone-legend i {
+  display: inline-block;
+  width: 18px;
+  height: 8px;
+  border-radius: 999px;
+  margin-right: 8px;
+  vertical-align: middle;
+  background: var(--accent);
+}
+.zone-legend i.ink { background: var(--ink); }
+
+/* ---------- Roles ---------- */
+.du-roles { background: var(--cream); }
+.two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.card {
+  border: 1px solid var(--cream-border);
+  background: var(--cream);
+  padding: 28px 28px 30px;
+}
+.card.ink {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--cream);
+}
+.card.ink h3, .card.ink p, .card.ink li { color: var(--cream); }
+.card.ink .v3-label { color: var(--warm-400); }
+.card.warm {
+  background: var(--accent-soft);
+  border-color: rgba(244, 169, 59, 0.28);
+}
+.card ul { margin: 14px 0 0; }
+.card li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--warm-800);
+}
+.card li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 7px;
+  height: 7px;
+  border-radius: 1px;
+  background: var(--accent);
+}
+.card.ink li::before { background: var(--accent); }
+.card li:last-child { margin-bottom: 0; }
+.card .foot {
+  margin-top: 18px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--warm-600);
+}
+.card.ink .foot { color: rgba(242, 238, 230, 0.55); }
+
+/* ---------- Severity ---------- */
+.du-sev { background: var(--cream); padding-top: 0; }
+table.sev { font-size: 15px; min-width: 720px; }
+table.sev th, table.sev td {
+  text-align: left;
+  vertical-align: top;
+  padding: 16px 14px;
+  border-bottom: 1px solid var(--cream-soft);
+}
+table.sev thead th {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 10px;
+}
+table.sev thead th.ent {
+  color: var(--ink);
+  background: var(--accent-soft);
+  border-bottom: 2px solid var(--accent);
+}
+table.sev td.ent { background: var(--accent-soft); }
+table.sev tbody tr:last-child td { border-bottom: 1px solid var(--ink); }
+.badge {
+  display: inline-block;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 4px 8px;
+  margin-bottom: 8px;
+  border-radius: 999px;
+}
+.badge-1 { background: var(--ink); color: var(--cream); }
+.badge-2 { background: var(--warm-700); color: var(--cream); }
+.badge-3 { background: var(--warm-600); color: var(--cream); }
+.badge-h { background: var(--ok); color: #F2EEE6; }
+.sev .what { display: block; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.sev .ex { color: var(--warm-600); font-size: 13px; line-height: 1.4; }
+
+/* ---------- Contact + morning ---------- */
+.du-reach { background: var(--cream-soft); }
+.phone {
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: clamp(28px, 4vw, 40px);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+.phone a { color: var(--cream); }
+.callout {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 16px;
+}
+.stack { display: flex; flex-direction: column; gap: 16px; }
+
+/* ---------- Commercial ---------- */
+.du-commercial { background: var(--cream); }
+.term-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-top: 28px;
+}
+.term-card {
+  background: var(--cream-soft);
+  padding: 24px 22px 26px;
+  border: 1px solid var(--cream-border);
+}
+.term-card.featured {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--cream);
+}
+.term-card.featured h3, .term-card.featured p { color: var(--cream); }
+.term-card .v3-label { margin-bottom: 10px; display: block; }
+.term-card.featured .v3-label { color: var(--accent); }
+.term-card .price {
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 28px;
+  letter-spacing: -0.03em;
+  margin: 8px 0 10px;
+}
+.commence {
+  margin-top: 22px;
+  padding: 22px 24px;
+  border: 1px solid var(--cream-border);
+  background: var(--cream);
+}
+
+/* ---------- Fleet ---------- */
+.du-fleet { background: var(--cream); padding-top: 0; }
+.site-status {
+  display: inline-block;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+.st-live { background: var(--ok-soft); color: var(--ok); }
+.st-plan { background: var(--accent-soft); color: var(--warm-700); }
+
+/* ---------- Final ---------- */
+.du-final {
+  background: var(--ink);
+  color: var(--cream);
+  padding-top: clamp(80px, 8vw, 120px);
+  padding-bottom: clamp(96px, 10vw, 160px);
+  text-align: center;
+}
+.du-final-inner {
+  max-width: 920px;
+  margin-inline: auto;
+  padding-inline: var(--pad);
+  display: grid;
+  gap: clamp(18px, 2vw, 28px);
+  justify-items: center;
+}
+.du-final .v3-label { color: var(--accent); }
+.du-final h2 {
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  color: var(--cream);
+  max-width: 16ch;
+  margin: 0;
+}
+.du-final p {
+  font-size: 17px;
+  line-height: 1.55;
+  color: rgba(242, 238, 230, 0.78);
+  max-width: 52ch;
+  margin: 0;
+}
+.decisions {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+  text-align: left;
+  margin-top: 8px;
+}
+.decision {
+  background: var(--ink-soft);
+  border: 1px solid rgba(242, 238, 230, 0.1);
+  padding: 22px 20px 24px;
+}
+.decision .n {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.decision h3 { color: var(--cream); margin-bottom: 10px; }
+.decision p { font-size: 15px; color: rgba(242, 238, 230, 0.7); }
+.du-final-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 8px;
+}
+.legal {
+  font-size: 14px;
+  color: rgba(242, 238, 230, 0.5);
+  max-width: 56ch;
+}
+
+/* ---------- Footer ---------- */
+.site-foot {
+  background: var(--ink);
+  color: rgba(242, 238, 230, 0.62);
+  border-top: 1px solid rgba(242, 238, 230, 0.08);
+  padding: 28px var(--pad) 36px;
+}
+.site-foot-inner {
+  max-width: var(--wrap);
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.site-foot a:hover { color: var(--cream); }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 860px) {
+  .hero-meta, .du-stats-grid, .two, .callout, .term-grid, .decisions {
+    grid-template-columns: 1fr;
+  }
+  .zone-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .zone-local { text-align: left; }
+  .du-hero h1 { max-width: 12ch; }
+  .draft-pill.bar-hide-sm { display: none; }
+}
+@media (max-width: 560px) {
+  .site-bar-inner { padding-block: 12px; }
+  .v3-btn-sm { padding: 9px 12px; }
+}
+
+/* ---------- Print ---------- */
+@media print {
+  .skip, .site-bar, .du-hero-ctas, .du-final-ctas { display: none !important; }
+  html, body {
+    background: #F2EEE6;
+    color: #0A0A0A;
+    font-size: 12pt;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .du-hero {
+    margin-top: 0;
+    padding-top: 36px;
+    padding-bottom: 28px;
+    break-after: avoid;
+  }
+  .du-hero h1 { font-size: 36pt; }
+  .du-stats { padding-block: 24px 32px; }
+  .du-stat b { font-size: 28pt; }
+  .section-pad { padding-block: 28px; }
+  .du-final {
+    padding-block: 32px 40px;
+    break-inside: avoid;
+  }
+  .du-final h2 { font-size: 28pt; }
+  .card, .quote, .term-card, .decision, .zone-row, table { break-inside: avoid; }
+  a[href^="tel"], a[href^="mailto"] { text-decoration: none; }
+  .site-foot { border-top: 1px solid #33302A; }
+}
+@page { margin: 0.6in; }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#purpose">Skip to content</a>
+
+<header class="site-bar" id="site-bar">
+  <div class="site-bar-inner">
+    <a class="wordmark" href="#top" aria-label="Studio Pod">
+      <svg viewBox="0 0 25 25" aria-hidden="true">
+        <rect x="10" y="0" width="4" height="4" rx="1" fill="currentColor"/>
+        <rect x="5" y="5" width="4" height="4" rx="1" fill="currentColor"/>
+        <rect x="15" y="5" width="4" height="4" rx="1" fill="currentColor"/>
+        <rect x="0" y="10" width="4" height="4" rx="1" fill="currentColor"/>
+        <rect x="10" y="10" width="4" height="4" rx="1" fill="currentColor"/>
+        <rect x="20" y="10" width="4" height="4" rx="1" fill="currentColor"/>
+        <rect x="5" y="15" width="4" height="4" rx="1" fill="currentColor"/>
+        <rect x="15" y="15" width="4" height="4" rx="1" fill="currentColor"/>
+        <rect x="10" y="20" width="4" height="4" rx="1" fill="currentColor"/>
+      </svg>
+      <span class="wordmark-text">Studio Pod</span>
+    </a>
+    <div class="site-bar-actions">
+      <span class="draft-pill bar-hide-sm">Confidential draft</span>
+      <button class="v3-btn v3-btn-ghost-light v3-btn-sm" type="button" onclick="window.print()">Download PDF</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- 1. du-hero -->
+<section class="du-hero" aria-label="Cover">
+  <div class="du-hero-grain" aria-hidden="true"></div>
+  <div class="du-hero-content">
+    <span class="du-hero-pill">Software, service &amp; support · SLA-COP-2026-08-DRAFT</span>
+    <h1>Studio Pod × ConocoPhillips.<br><em>The operating SLA.</em></h1>
+    <p class="du-hero-sub">For the Houston HQ pod and the planned Midland, Bartlesville, Calgary, and Anchorage sites. Core is already signed. Enterprise is the additional support tier.</p>
+    <div class="hero-doc">Service level agreement</div>
+    <div class="du-hero-ctas">
+      <a class="v3-btn v3-btn-primary-light" href="#compare">Core vs Enterprise</a>
+      <a class="v3-btn v3-btn-ghost-light" href="#next">Three decisions</a>
+    </div>
+    <div class="hero-meta">
+      <div>
+        <div class="lbl">Prepared for</div>
+        <div class="val">Billy Smith II, Alicia Morrow, and procurement</div>
+      </div>
+      <div>
+        <div class="lbl">From</div>
+        <div class="val">Chris Bailey<br>Studio Pod Pro, Inc.</div>
+      </div>
+      <div>
+        <div class="lbl">Document</div>
+        <div class="val">August 2026 · Confidential<br>SLA-COP-2026-08-DRAFT</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. du-stats -->
+<section class="du-stats" aria-label="At a glance">
+  <div class="du-stats-grid">
+    <div class="du-stat">
+      <b>5 <em>pods</em></b>
+      <span class="cap">HQ + four planned sites</span>
+    </div>
+    <div class="du-stat">
+      <b>2 <em>tiers</em></b>
+      <span class="cap">Core signed · Enterprise optional</span>
+    </div>
+    <div class="du-stat">
+      <b>3 <em>zones</em></b>
+      <span class="cap">CT · MT · Alaska Time</span>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Purpose + signed Core -->
+<section class="du-purpose section-pad" id="purpose">
+  <div class="wrap">
+    <div class="sec-kicker">
+      <span class="sec-num">01</span>
+      <span class="v3-label">Purpose</span>
+    </div>
+    <h2>How Software &amp; Service actually runs.</h2>
+    <p class="lede" style="margin-top:16px;">This is the service attachment for ConocoPhillips pods. It is not a rewrite of the rental or purchase agreement. It is who does what, how fast we respond, and what changes if you take the Enterprise tier.</p>
+    <p class="tier-note">Two tiers. <strong>Core</strong> is the Software, Service, and Technical Support ConocoPhillips already signed. <strong>Enterprise</strong> is the additional support tier requested for a multi-site, multi-year rollout: SSO and security, HRIS and badging export, a dedicated CSM, extended hours across your time zones, and warranty for the life of the term.</p>
+
+    <div class="quote">
+      <div class="q-label">What Core already covers · as signed</div>
+      <p><strong>Software and Service.</strong> Cover any issues with the software and maintain updates for the duration of the rental/term. Service the equipment if it breaks down; schedule to come on site and replace it to get the Pod up and running again.</p>
+      <p><strong>Technical Support.</strong> Provide support when the Pod or software isn’t functioning properly, beyond what is fixed by a normal restart. The client team is first line of defense for: Pod needing to be turned on (power outage), reconnected to internet, or restarted (most issues are quickly fixed with a simple restart). Anything beyond that, or if repeated restarts don’t correct an issue, Studio Pod is available during normal business hours.</p>
+      <p class="muted" style="font-size:15px;">Normal business hours: Monday-Friday, 9:00am-5:00pm CT. Phone (346) 375-5454. Email hello@thestudiopod.com. Same-business-day reply on general email. Year 1 of service includes remote support, software updates, lighting calibration, and a guaranteed-replacement SLA.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. du-compare -->
+<section class="du-compare section-pad" id="compare">
+  <div class="wrap">
+    <div class="sec-kicker">
+      <span class="sec-num">02</span>
+      <span class="v3-label">At a glance</span>
+    </div>
+    <h2>Core vs Enterprise</h2>
+    <p class="lede" style="margin:12px 0 28px;">Core is the status quo you already signed. Enterprise is the additional support tier for a five-pod fleet across three time zones. Operating targets below match that signed Core language and the Enterprise upgrade.</p>
+
+    <div class="table-scroll">
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th>Capability</th>
+            <th>Core</th>
+            <th class="ent">Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="feat">Support hours</td>
+            <td>Mon-Fri, 9:00am-5:00pm CT</td>
+            <td class="ent">Mon-Fri, 6:00am-8:00pm CT. Weekends: best-effort, otherwise the next coverage window.</td>
+          </tr>
+          <tr>
+            <td class="feat">First response</td>
+            <td>Same business day during 9-5 CT after the call (and a restart)</td>
+            <td class="ent">Sev 1: 1-hour response during 6am-8pm CT, remote first. See severity grid.</td>
+          </tr>
+          <tr>
+            <td class="feat">Dedicated CSM</td>
+            <td class="no">Not included</td>
+            <td class="ent"><span class="yes">Dedicated customer success manager</span></td>
+          </tr>
+          <tr>
+            <td class="feat">Proactive morning health check</td>
+            <td>Current practice at Houston HQ. Included operationally for the HQ pod.</td>
+            <td class="ent"><span class="yes">Contractual morning health check across all ConocoPhillips sites</span> in the coverage window</td>
+          </tr>
+          <tr>
+            <td class="feat">Remote support</td>
+            <td><span class="yes">Included</span></td>
+            <td class="ent"><span class="yes">Included</span></td>
+          </tr>
+          <tr>
+            <td class="feat">Software updates</td>
+            <td><span class="yes">Included</span> for the paid S+S term</td>
+            <td class="ent"><span class="yes">Included</span> for the paid S+S term</td>
+          </tr>
+          <tr>
+            <td class="feat">Lighting calibration</td>
+            <td><span class="yes">Included</span></td>
+            <td class="ent"><span class="yes">Included</span></td>
+          </tr>
+          <tr>
+            <td class="feat">On-site hardware replacement</td>
+            <td>Scheduled on-site replace to restore service</td>
+            <td class="ent">Same scheduled on-site replace, plus warranty for the life of the term</td>
+          </tr>
+          <tr>
+            <td class="feat">Warranty duration</td>
+            <td>Per the paid term. Year 1: guaranteed-replacement SLA.</td>
+            <td class="ent"><span class="yes">Active for the life of the term</span></td>
+          </tr>
+          <tr>
+            <td class="feat">SSO / security</td>
+            <td class="no">Not included</td>
+            <td class="ent"><span class="yes">Included</span></td>
+          </tr>
+          <tr>
+            <td class="feat">HRIS / badging export</td>
+            <td class="no">Not included</td>
+            <td class="ent"><span class="yes">Included</span></td>
+          </tr>
+          <tr>
+            <td class="feat">Coverage across COP time zones</td>
+            <td>Houston hours (Central Time)</td>
+            <td class="ent">6am-8pm CT covers a full business day in Houston, Midland, Bartlesville, Calgary, and Anchorage</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Time-zone map -->
+<section class="du-zones section-pad" id="zones">
+  <div class="wrap">
+    <div class="sec-kicker">
+      <span class="sec-num">03</span>
+      <span class="v3-label">Enterprise hours · time zones</span>
+    </div>
+    <h2>6am-8pm CT is built for the five-site map.</h2>
+    <p class="lede" style="margin-top:12px;">Enterprise support is Monday-Friday in that window. We do not staff 24/7. Weekend contact is best-effort; if we are not available, the clock starts at the next coverage window.</p>
+
+    <div class="zone-map" aria-label="Enterprise coverage by site">
+      <div class="zone-row">
+        <div class="zone-name">Houston HQ<small>CT · home zone</small></div>
+        <div class="zone-track" aria-hidden="true"><span class="zone-fill" style="left:0;width:100%"></span></div>
+        <div class="zone-local">6:00am-8:00pm CT</div>
+      </div>
+      <div class="zone-row">
+        <div class="zone-name">Midland<small>CT · same as Houston</small></div>
+        <div class="zone-track" aria-hidden="true"><span class="zone-fill" style="left:0;width:100%"></span></div>
+        <div class="zone-local">6:00am-8:00pm CT</div>
+      </div>
+      <div class="zone-row">
+        <div class="zone-name">Bartlesville<small>CT · same as Houston</small></div>
+        <div class="zone-track" aria-hidden="true"><span class="zone-fill" style="left:0;width:100%"></span></div>
+        <div class="zone-local">6:00am-8:00pm CT</div>
+      </div>
+      <div class="zone-row">
+        <div class="zone-name">Calgary<small>MT · full business day, plus early</small></div>
+        <div class="zone-track" aria-hidden="true"><span class="zone-fill" style="left:0;width:100%"></span></div>
+        <div class="zone-local">5:00am-7:00pm MT</div>
+      </div>
+      <div class="zone-row">
+        <div class="zone-name">Anchorage<small>AKT · full Alaska business day</small></div>
+        <div class="zone-track" aria-hidden="true"><span class="zone-fill late" style="left:35.7%;width:64.3%"></span></div>
+        <div class="zone-local">3:00am-5:00pm AKT<br>8am-5pm AKT = 11am-8pm CT</div>
+      </div>
+    </div>
+    <div class="zone-legend">
+      <span><i></i>Enterprise window (local)</span>
+      <span><i class="ink"></i>Anchorage business day inside the CT window</span>
+    </div>
+    <p class="note">The 14-hour CT window (6:00am-8:00pm) is 5:00am-7:00pm Mountain and 3:00am-5:00pm Alaska. Anchorage’s 8:00am-5:00pm business day sits at 11:00am-8:00pm CT, fully inside coverage.</p>
+  </div>
+</section>
+
+<!-- 6. Roles -->
+<section class="du-roles section-pad" id="roles">
+  <div class="wrap">
+    <div class="sec-kicker">
+      <span class="sec-num">04</span>
+      <span class="v3-label">Roles</span>
+    </div>
+    <h2>Who does what</h2>
+    <div class="two" style="margin-top:28px;">
+      <div class="card">
+        <div class="v3-label" style="margin-bottom:10px;">ConocoPhillips · first line</div>
+        <h3>Power, network, restart, then call</h3>
+        <ul>
+          <li>Turn the Pod on after a power outage.</li>
+          <li>Reconnect it to the internet if the network dropped.</li>
+          <li>Restart the Pod. Most issues clear with a simple restart.</li>
+          <li>If it still fails, or if it fails again after restart, call the number on the Pod sign: <strong>(346) 375-5454</strong>.</li>
+        </ul>
+        <p class="foot">A password prompt, a locked session, or a pod that will not capture is a Sev 1. Call from the Pod so we can remote in. Do not wait to email later.</p>
+      </div>
+      <div class="card ink">
+        <div class="v3-label" style="margin-bottom:10px;">Studio Pod · second line</div>
+        <h3>Anything that survives a restart</h3>
+        <ul>
+          <li>Software defects.</li>
+          <li>Remote diagnosis while someone is at the Pod.</li>
+          <li>On-site replace when hardware is down, scheduled to get the Pod running again.</li>
+          <li>Updates, lighting calibration, and (Enterprise) morning health checks across sites.</li>
+        </ul>
+        <p class="foot">We are available during the support hours of the tier you are on. Core is 9-5 CT. Enterprise is 6am-8pm CT.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Severity -->
+<section class="du-sev section-pad" id="severity">
+  <div class="wrap">
+    <div class="sec-kicker">
+      <span class="sec-num">05</span>
+      <span class="v3-label">Operating targets</span>
+    </div>
+    <h2>Severity and response</h2>
+    <p class="lede" style="margin:12px 0 24px;">These are the operating targets that match the signed Core language and the Enterprise upgrade. They start after you call (or after we find an issue on the morning check) and after the first-line restart. They are not a 24/7 NOC clock.</p>
+
+    <div class="table-scroll">
+      <table class="sev">
+        <thead>
+          <tr>
+            <th style="width:30%;padding-left:0;">Severity</th>
+            <th>Core</th>
+            <th class="ent">Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding-left:0;">
+              <span class="badge badge-1">Sev 1</span>
+              <span class="what">Pod unusable</span>
+              <span class="ex">Will not capture. Locked or password prompt. No session.</span>
+            </td>
+            <td>Same business day during 9:00am-5:00pm CT, after the call and a restart.</td>
+            <td class="ent"><strong>1-hour response</strong> during 6:00am-8:00pm CT. Remote first.</td>
+          </tr>
+          <tr>
+            <td style="padding-left:0;">
+              <span class="badge badge-2">Sev 2</span>
+              <span class="what">Degraded</span>
+              <span class="ex">Tablet fuzzy or glitchy. Delivery email failing. Alignment off.</span>
+            </td>
+            <td>Next business day.</td>
+            <td class="ent">Same coverage day / <strong>4 business hours</strong> during 6am-8pm CT.</td>
+          </tr>
+          <tr>
+            <td style="padding-left:0;">
+              <span class="badge badge-3">Sev 3</span>
+              <span class="what">Requests</span>
+              <span class="ex">Remove promo UX copy. Branding. Positioning visit.</span>
+            </td>
+            <td>Scheduled.</td>
+            <td class="ent"><strong>2 business days</strong> to plan. CSM owned.</td>
+          </tr>
+          <tr>
+            <td style="padding-left:0;">
+              <span class="badge badge-h">Hardware</span>
+              <span class="what">On-site replacement</span>
+              <span class="ex">Equipment break-down. Restore the Pod.</span>
+            </td>
+            <td>Scheduled on-site replace to restore service. Year-1 guaranteed-replacement SLA.</td>
+            <td class="ent">Same scheduled on-site replace. Warranty stays active for the life of the term.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">On-site replacement is scheduled to get the Pod up and running again. We do not quote a four-hour on-site window. Remote diagnosis comes first. If the Pod is unusable, call. If you email, Core still aims for a same-business-day reply during 9-5 CT. An executive password-prompt incident is Sev 1: call from the Pod.</p>
+  </div>
+</section>
+
+<!-- 8. How to reach + morning check -->
+<section class="du-reach section-pad" id="reach">
+  <div class="wrap">
+    <div class="sec-kicker">
+      <span class="sec-num">06</span>
+      <span class="v3-label">Contact</span>
+    </div>
+    <h2>How to reach support</h2>
+    <div class="callout" style="margin-top:28px;">
+      <div class="card ink">
+        <div class="v3-label" style="margin-bottom:12px;">Call the number on the Pod sign</div>
+        <div class="phone"><a href="tel:+13463755454">(346) 375-5454</a></div>
+        <p style="margin-top:14px;color:rgba(242,238,230,0.78);">Best practice: call while you are at the Pod so we can remote in. This is the fastest path on Sev 1 (locked session, password prompt, will not capture).</p>
+        <p class="foot">Core hours 9:00am-5:00pm CT · Enterprise 6:00am-8:00pm CT · Mon-Fri</p>
+      </div>
+      <div class="stack">
+        <div class="card">
+          <div class="v3-label" style="margin-bottom:8px;">Email</div>
+          <h3><a href="mailto:hello@thestudiopod.com">hello@thestudiopod.com</a></h3>
+          <p class="foot">Same-business-day reply on general email during Core hours. Use email for Sev 2/3 and for a written trail. Use the phone when the Pod is down.</p>
+        </div>
+        <div class="card warm">
+          <div class="v3-label" style="margin-bottom:8px;color:var(--warm-700);">Enterprise only</div>
+          <h3>Dedicated CSM as an additional path</h3>
+          <p class="foot">Named CSM for planning, branding requests, multi-site coordination, and anything that should not wait in the general inbox. The phone number on the sign remains the Sev 1 line.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-kicker" style="margin-top:56px;">
+      <span class="sec-num">07</span>
+      <span class="v3-label">Monitoring</span>
+    </div>
+    <h2>Proactive morning health check</h2>
+    <p class="lede" style="margin:12px 0 24px;">Studio Pod already checks the pod in the morning. That is current operations at Houston HQ, and it stays in place on Core. The difference on Enterprise is that the morning check becomes a contractual commitment across every ConocoPhillips site, inside the 6am-8pm CT coverage window.</p>
+    <div class="two">
+      <div class="card">
+        <div class="v3-label" style="margin-bottom:8px;">Core</div>
+        <h3>HQ morning check · current ops</h3>
+        <p class="foot">Included operationally for the Houston HQ pod. We look in the morning so a problem is often found before the first session, not after an executive walks up to it.</p>
+      </div>
+      <div class="card warm">
+        <div class="v3-label" style="margin-bottom:8px;color:var(--warm-700);">Enterprise</div>
+        <h3>All five sites · in the coverage window</h3>
+        <p class="foot">Contractual morning health check across Houston, Midland, Bartlesville, Calgary, and Anchorage. Same idea. Written into the tier, not just the habit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. Commercial -->
+<section class="du-commercial section-pad" id="commercial">
+  <div class="wrap">
+    <div class="sec-kicker">
+      <span class="sec-num">08</span>
+      <span class="v3-label">Commercial</span>
+    </div>
+    <h2>Software &amp; Service term</h2>
+    <p class="lede" style="margin-top:12px;">Updates and bug fixes run for the paid Software &amp; Service term. Pricing lives in the commercial proposal. This SLA does not replace that quote.</p>
+
+    <div class="term-grid">
+      <div class="term-card">
+        <span class="v3-label">Year to year</span>
+        <div class="price">Annual</div>
+        <p>Stay on a yearly clock. Enterprise at $750/month when selected. No prepaid discount.</p>
+      </div>
+      <div class="term-card">
+        <span class="v3-label">Prepaid 2-year</span>
+        <div class="price">$1,000 off</div>
+        <p>Year 2, per pod. Aligns the fleet to one Software &amp; Service clock.</p>
+      </div>
+      <div class="term-card featured">
+        <span class="v3-label">Prepaid 3-year</span>
+        <div class="price">$15,000 saved</div>
+        <p>Equals the first year of Enterprise ($750/month). First year of Enterprise is effectively free. $2,000 off year 3 per pod.</p>
+      </div>
+    </div>
+
+    <div class="commence">
+      <h3 style="margin-bottom:8px;">Commencement</h3>
+      <p>Align all pods to one common Software &amp; Service start date. ConocoPhillips receives S+S until the final pod is installed. That is simpler billing, and it means coverage during the rollout rather than five staggered clocks.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10. Fleet -->
+<section class="du-fleet section-pad" id="fleet">
+  <div class="wrap">
+    <div class="sec-kicker">
+      <span class="sec-num">09</span>
+      <span class="v3-label">Fleet</span>
+    </div>
+    <h2>Sites covered</h2>
+    <p class="lede" style="margin:12px 0 24px;">Five pods. Houston HQ is live on a rent-to-own that ConocoPhillips is converting to purchase. Midland, Bartlesville, Calgary, and Anchorage are planned. This SLA is written for the fleet, not only HQ.</p>
+
+    <div class="table-scroll">
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th>Site</th>
+            <th>Status</th>
+            <th>Time zone</th>
+            <th class="ent">Enterprise coverage window (local)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="feat">Houston HQ</td>
+            <td><span class="site-status st-live">Existing</span> · converting to purchase</td>
+            <td>CT</td>
+            <td class="ent">6:00am-8:00pm CT</td>
+          </tr>
+          <tr>
+            <td class="feat">Midland</td>
+            <td><span class="site-status st-plan">Planned</span></td>
+            <td>CT</td>
+            <td class="ent">6:00am-8:00pm CT</td>
+          </tr>
+          <tr>
+            <td class="feat">Bartlesville</td>
+            <td><span class="site-status st-plan">Planned</span></td>
+            <td>CT</td>
+            <td class="ent">6:00am-8:00pm CT</td>
+          </tr>
+          <tr>
+            <td class="feat">Calgary</td>
+            <td><span class="site-status st-plan">Planned</span></td>
+            <td>MT</td>
+            <td class="ent">5:00am-7:00pm MT</td>
+          </tr>
+          <tr>
+            <td class="feat">Anchorage</td>
+            <td><span class="site-status st-plan">Planned</span></td>
+            <td>AKT</td>
+            <td class="ent">Full Alaska business day (8am-5pm AKT = 11am-8pm CT)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Software &amp; Service commencement aligns to one common start date across the fleet. Coverage runs through final install so no site sits uncovered while the others come online.</p>
+  </div>
+</section>
+
+<!-- 11. du-final -->
+<section class="du-final" id="next">
+  <div class="du-final-inner">
+    <span class="v3-label">Next step</span>
+    <h2>Three decisions. Then we paper the term.</h2>
+    <p>This document is for Chris Bailey to walk Billy Smith II, Alicia Morrow, and procurement through Core (the status quo already signed) versus Enterprise (the additional support tier asked for). It is a draft for client review. It is not an amendment until it rides with the commercial proposal.</p>
+
+    <div class="decisions">
+      <div class="decision">
+        <div class="n">01 · Tier</div>
+        <h3>Core or Enterprise</h3>
+        <p>Stay on Core, or upgrade the five-pod fleet to Enterprise (SSO/security, HRIS and badging export, dedicated CSM, 6am-8pm CT, warranty for the life of the term).</p>
+      </div>
+      <div class="decision">
+        <div class="n">02 · Term</div>
+        <h3>Year, 2-year, or 3-year</h3>
+        <p>Year-to-year, prepaid 2-year, or prepaid 3-year. The 3-year saves $15,000 and makes the first year of Enterprise effectively free.</p>
+      </div>
+      <div class="decision">
+        <div class="n">03 · Start date</div>
+        <h3>One common clock</h3>
+        <p>One common Software &amp; Service commencement, aligned to the last install, with coverage until that pod is live.</p>
+      </div>
+    </div>
+
+    <div class="du-final-ctas">
+      <a class="v3-btn v3-btn-primary-light" href="mailto:hello@thestudiopod.com">Email Chris</a>
+      <a class="v3-btn v3-btn-ghost-light" href="tel:+13463755454">Call (346) 375-5454</a>
+    </div>
+    <p class="legal">DRAFT FOR REVIEW. Confidential. For ConocoPhillips internal circulation with Billy Smith II, Alicia Morrow, and procurement. Not for further distribution. Prepared August 2026 by Chris Bailey, Studio Pod Pro, Inc.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="site-foot-inner">
+    <span><a href="mailto:hello@thestudiopod.com">hello@thestudiopod.com</a> · <a href="tel:+13463755454">(346) 375-5454</a></span>
+    <span>Made in USA · Houston, TX</span>
+    <span>Confidential · SLA-COP-2026-08-DRAFT</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var bar = document.getElementById("site-bar");
+  if (!bar) return;
+  var onScroll = function () {
+    bar.classList.toggle("is-scrolled", window.scrollY > 24);
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+})();
+</script>
+</body>
+</html>
